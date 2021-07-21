@@ -1,0 +1,1 @@
+python "C:\Users\simon\Drone_bilder\skript\pheno_p4m_rawimages_sorter3.0.py" --root_path "D:/DCIM/"  --fields "masbasis,graminor,nobalyield" --cal_pics "1,1"
