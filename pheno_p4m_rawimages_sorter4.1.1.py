@@ -10,7 +10,7 @@ from tqdm import tqdm
 parser = argparse.ArgumentParser(description='add path')
 parser.add_argument('--input_path', metavar='--input_path', type=str,help='enter path to data')
 parser.add_argument('--fields', metavar='--fields', type=str,help='enter the fields recorded')
-parser.add_argument('--cal_pics', metavar='--cal_pics', type=str,help='enter the amount of calibration pics after each flight')
+parser.add_argument('--cal_pics', metavar='--cal_pics', type=str, default='not given',help='enter the amount of calibration pics after each flight')
 
 args = parser.parse_args()
 
@@ -27,10 +27,16 @@ fields = fields.split(',')
 fields = [s.strip() for s in fields] 
 # making the input fields into a list
 
-cal_pics_str = cal_pics
-cal_pics = cal_pics.split(',')
-for i in range(0, len(cal_pics)):
-    cal_pics[i] = int(cal_pics[i])
+if cal_pics == 'not given':
+    cal_pics = list()
+    fields_amount = len(fields)
+    for i in range(fields_amount-1):
+        cal_pics.append(1)
+else:
+    cal_pics_str = cal_pics
+    cal_pics = cal_pics.split(',')
+    for i in range(0, len(cal_pics)):
+        cal_pics[i] = int(cal_pics[i])
 # making the input string into a list of integers
 
 input_path = input_path.strip()
@@ -38,7 +44,7 @@ if input_path[-1] != '/':
     input_path = input_path + '/'
 
 rapport_file = open(input_path + 'rapport.txt', 'a')
-rapport_file.write('sorting the path:' + input_path + '\n' + 'given fields:' + fields_str + '\n' + 'amount of calibration pics after each field, except from last' + cal_pics_str + '\n')
+rapport_file.write('sorting the path:' + input_path + '\n' + 'given fields:' + fields_str + '\n')
 ################################### inputs ###################################
 
 ################################### renaming files ###################################
