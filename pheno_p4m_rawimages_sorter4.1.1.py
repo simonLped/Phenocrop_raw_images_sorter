@@ -6,6 +6,7 @@ import shutil, os
 import argparse
 from tqdm import tqdm
 
+
 ################################### inputs ###################################
 parser = argparse.ArgumentParser(description='add path')
 parser.add_argument('--input_path', metavar='--input_path', type=str,help='enter path to data')
