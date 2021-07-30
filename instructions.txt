@@ -1,0 +1,32 @@
+Runs in anaconda promt with: python "SCRIPT_PATH" --input_path "PATH_YOU_WANT_TO_SORT" --fields "FIELDS_SEPERATED_WITH_COMMA"
+
+This script works with the multispectral phantom drone or any path that has the following structure:
+Example:
+100MEDIA
+101FPLAN
+102FPLAN
+103MEDIA
+104FPLAN
+105FPLAN
+106FPLAN
+104MEDIA
+
+The standard procedure is:
+- Take picture of book with name of field.
+- Take calibration picture.
+- Do the flight, land and change battery if needed.
+- After you are done taking pictures of the field, take another calibration picture.
+- For the next field, start at step one again.
+
+Within folders ending with "FPLAN" there should be only rgb and multispectral images of the field.
+Inside folders ending with "MEDIA" there should be only images of the calibration panel, field name, and optional weather picture.
+There can not be two "MEDIA" folders right after eachother.
+
+If you have more calibration pictures then 1 before a field, and one after a field you need an additional input
+Example:
+--cal_pics "2,4"
+For 3 fields with 2 calibration pictures after the first field, and 4 calibration picture after the second field.
+You do not need to specify calibration pics for the last field, the script includes all calibration pics in the last folder to the correct folder.
+With this method you do not need to think about the calibration pictures before each field. Only the ones after you land and take x amount of calibration pics.
+
+

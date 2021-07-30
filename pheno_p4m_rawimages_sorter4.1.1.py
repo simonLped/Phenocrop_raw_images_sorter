@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
+# Created by Simon Pedersen, summer 2021, PedersenSimonLeander@Gmail.com
+# https://github.com/simonLped/Phenocrop_raw_images_sorter
 
 import pathlib
 import shutil, os
@@ -97,7 +99,7 @@ original_dir.remove('rapport.txt')
 
 x = 0
 y = 1
-for folder in tqdm(original_dir):
+for folder in original_dir:
     updated_dir = sorted(os.listdir(input_path))
     updated_dir.remove('rapport.txt')
     
